@@ -1,0 +1,316 @@
+:root {
+    --primary-color: #8B0000;
+    --secondary-color: #000000;
+    --accent-color: #FF0000;
+    --light-color: #F5F5F5;
+    --dark-color: #1A1A1A;
+    --table-bg: rgba(0, 0, 0, 0.5);
+    --hover-bg: rgba(139, 0, 0, 0.1);
+}
+
+body {
+    background-color: #F5F5F5;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--light-color);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #262626 0%, #1a1a1a 100%);
+    color: #dedede;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #8B0000;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header h1 i {
+    color: #FF0000;
+    font-size: 1.6rem;
+}
+
+/* Navegação */
+nav {
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-button {
+    background: #333;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 2px solid transparent;
+    min-width: 100px;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Remove hover dos botões do header */
+.nav-button:hover {
+    background: #333;
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.nav-button i {
+    font-size: 0.9rem;
+}
+
+#main-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #262626;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: var(--light-color);
+}
+
+input, textarea {
+    width: 97%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #464646;
+    color: var(--light-color);
+}
+
+textarea {
+    resize: none;
+}
+
+.alinhaBtns {
+    background: #8B0000; /* Cor padrão para todos os botões */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.alinhaBtns:hover {
+    background: #A52A2A; /* Cor mais clara no hover */
+    transform: translateY(-2px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--table-bg);
+}
+
+table th, table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background: #8B0000; /* Cor da tabela também em #8B0000 */
+    color: var(--light-color);
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: var(--hover-bg);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 3px solid var(--accent-color);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Container de busca CPF */
+.cpf-search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cpf-search-container input {
+    flex: 1;
+}
+
+.search-btn {
+    background: #8B0000; /* Cor do botão buscar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    background: #A52A2A; /* Cor mais clara no hover */
+}
+
+/* Grupo de botões */
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Botão de atualizar com cor diferente */
+.btn-atualizar {
+    background: #ffc107; /* Amarelo para o botão atualizar */
+    color: #212529;
+}
+
+.btn-atualizar:hover {
+    background: #e0a800; /* Amarelo mais escuro no hover */
+}
+
+/* Todos os outros botões mantêm a cor #8B0000 */
+.btn-cadastrar,
+.btn-limpar,
+.btn-listar {
+    background: #8B0000; /* Vermelho escuro para os outros botões */
+}
+
+.btn-cadastrar:hover,
+.btn-limpar:hover,
+.btn-listar:hover {
+    background: #A52A2A; /* Vermelho mais claro no hover */
+}
+
+/* Responsividade Header */
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem;
+    }
+
+    .header-content {
+        gap: 0.8rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .nav-buttons {
+        gap: 0.4rem;
+    }
+
+    .nav-button {
+        padding: 0.5rem 0.8rem;
+        min-width: 90px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-button {
+        width: 100%;
+        max-width: 180px;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Responsividade Geral */
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #main-container {
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    input, textarea {
+        width: 95%;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .cpf-search-container {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAGAS Barbearia - Cadastro de Clientes</title>
+    <link rel="stylesheet" href="cadastro-agendamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body onload="buscarServico(); buscarBarbeiro()">
+
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-cut"></i> GRAGAS Barbearia</h1>
+            <nav>
+                <div class="nav-buttons">
+                    <a href="index2.html" class="nav-button">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="agendamento.html" class="nav-button active">
+                        <i class="fas fa-calendar"></i> Agendamentos
+                    </a>
+                    <a href="clientes.html" class="nav-button">
+                        <i class="fas fa-users"></i> Clientes
+                    </a>
+                    <a href="servico.html" class="nav-button">
+                        <i class="fas fa-concierge-bell"></i> Serviços
+                    </a>
+                    <a href="barbeiro.html" class="nav-button">
+                        <i class="fas fa-user-tie"></i> Funcionários
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="main-container">
+        <h1>Agendamentos</h1>
+
+        <form class="filters" id="filters">
+            <div class="half-box">
+                <label for="barbeiroSelecionado"><i class="fas fa-user-tie"></i> Barbeiro:</label>
+                <select id="barbeiroSelecionado" name="barbeiroSelecionado" required>
+                    <option value="">Selecione o Barbeiro</option>
+                    <!-- opções de Barbeiros preenchidas vai aparecer aqui -->
+                </select>
+
+                <label for="cpf_cli"><i class="fas fa-id-card"></i> CPF do Cliente:</label>
+                <input type="text" id="cpf_cli" list="cpfClientes" placeholder="Digite o CPF" oninput="buscarClientes(this.value)">
+                <datalist id="cpfClientes">
+                    <!-- Opções serão preenchidas dinamicamente -->
+                </datalist>
+
+                <label for="data"><i class="fa-solid fa-calendar"></i> Data:</label>
+                <input type="date" id="data">
+            </div>
+
+            <div class="select-group">
+                <div class="half-box">
+                    <label for="servicoSelecionado"><i class="fas fa-concierge-bell"></i> Serviço:</label>
+                    <select id="servicoSelecionado" name="servicoSelecionado" onchange="buscaHorariosDisponiveis()" required>
+                        <option value="">Selecione o Serviço</option>
+                        <!-- opções de Serviços preenchidas vai aparecer aqui -->
+                    </select>
+                </div>
+
+                <div class="half-box">
+                    <label for="horaSelecionada"><i class="fa-solid fa-clock"></i> Horário:</label>
+                    <select id="horaSelecionada" name="horaSelecionada" required>
+                        <option value="">Selecione o Horário</option>
+                        <!-- Horários disponíveis serão preenchidos dinamicamente -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" onclick="cadastrarAgendamento(event)" class="alinhaBtns">
+                    <i class="fas fa-plus"></i> Cadastrar Agendamento
+                </button>
+                <button type="button" onclick="listarAgendamentos()" class="alinhaBtns">
+                    <i class="fas fa-list"></i> Listar Agendamentos
+                </button>
+                <button type="button" onclick="reabrirTodosAgendamentos()" class="alinhaBtns reabrir-btn">
+                    <i class="fas fa-undo"></i> Reabrir Todos
+                </button>
+            </div>
+        </form>
+
+        <h2><i class="fas fa-list"></i> Listagem de Agendamentos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th><i class="fas fa-hashtag"></i> ID</th>
+                    <th><i class="fas fa-calendar"></i> Data</th>
+                    <th><i class="fas fa-clock"></i> Horario</th>
+                    <th><i class="fas fa-user"></i> Cliente</th>
+                    <th><i class="fas fa-user-tie"></i> Barbeiro</th>
+                    <th><i class="fas fa-concierge-bell"></i> Serviço</th>
+                    <th><i class="fas fa-cog"></i> Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-agendamentos">
+                <!-- Linhas serão preenchidas pelo JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© 2025 GRAGAS Barbearia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="cadastro-agendamento.js"></script>
+</body>
+</html>

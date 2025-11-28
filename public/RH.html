@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAGAS Barbearia - Nossa Equipe</title>
+    <link rel="stylesheet" href="RH.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-cut"></i> GRAGAS Barbearia</h1>
+            <nav>
+                <div class="nav-buttons">
+                    <a href="index.html" class="nav-button">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="cadastro-agendamento.html" class="nav-button active">
+                        <i class="fas fa-calendar"></i> Agendamentos
+                    </a>
+                    <a href="cadastro-cliente.html" class="nav-button">
+                        <i class="fas fa-users"></i> Clientes
+                    </a>
+                    <a href="cadastro-cerviço.html" class="nav-button">
+                        <i class="fas fa-concierge-bell"></i> Serviços
+                    </a>
+                    <a href="cadastro-barbeiro.html" class="nav-button">
+                        <i class="fas fa-user-tie"></i> Funcionários
+                    </a>
+                    <a href="historico.html" class="nav-button">
+                        <i class="fas fa-history"></i> Histórico
+                    </a>
+                    <a href="financeiro.html" class="nav-button">
+                        <i class="fas fa-money-bill-wave"></i> Financeiro
+                    </a>
+                    <a href="RH.html" class="nav-button">
+                        <i class="fas fa-money-bill-wave"></i> RH
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="page-header">
+            <h1><i class="fas fa-users"></i> Nossa Equipe</h1>
+            <p>Conheça nossa equipe de profissionais qualificados</p>
+        </div>
+
+        <!-- Filtros e Estatísticas -->
+        <div class="controls-section">
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon barbeiro">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-barbeiros">0</h3>
+                        <p>Barbeiros</p>
+                        <small id="media-barbeiros">Média: R$ 0,00</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon cabeleireiro">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-cabeleireiros">0</h3>
+                        <p>Cabeleireiros</p>
+                        <small id="media-cabeleireiros">Média: R$ 0,00</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon recepcionista">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-recepcionistas">0</h3>
+                        <p>Recepcionistas</p>
+                        <small id="media-recepcionistas">Média: R$ 0,00</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon gerente">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-gerentes">0</h3>
+                        <p>Gerentes</p>
+                        <small id="media-gerentes">Média: R$ 0,00</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon outro">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-outros">0</h3>
+                        <p>Outros</p>
+                        <small id="media-outros">Média: R$ 0,00</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Buscar funcionário por nome...">
+                </div>
+                <select id="filter-cargo">
+                    <option value="">Todos os cargos</option>
+                    <option value="Barbeiro">Barbeiros</option>
+                    <option value="Cabeleireiro">Cabeleireiros</option>
+                    <option value="Recepcionista">Recepcionistas</option>
+                    <option value="Gerente">Gerentes</option>
+                    <option value="Outro">Outros</option>
+                </select>
+                <button class="btn-refresh" onclick="carregarFuncionarios()">
+                    <i class="fas fa-sync-alt"></i> Atualizar
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Carregando equipe...</p>
+        </div>
+
+        <!-- Seção de Barbeiros -->
+        <section id="section-barbeiros" class="team-section hidden">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-cut"></i>
+                    <h2>Barbeiros</h2>
+                </div>
+                <span class="section-count" id="count-barbeiros">0</span>
+            </div>
+            <div class="cards-grid" id="grid-barbeiros">
+                <!-- Cards de barbeiros serão inseridos aqui -->
+            </div>
+        </section>
+
+        <!-- Seção de Cabeleireiros -->
+        <section id="section-cabeleireiros" class="team-section hidden">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-female"></i>
+                    <h2>Cabeleireiros</h2>
+                </div>
+                <span class="section-count" id="count-cabeleireiros">0</span>
+            </div>
+            <div class="cards-grid" id="grid-cabeleireiros">
+                <!-- Cards de cabeleireiros serão inseridos aqui -->
+            </div>
+        </section>
+
+        <!-- Seção de Recepcionistas -->
+        <section id="section-recepcionistas" class="team-section hidden">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-headset"></i>
+                    <h2>Recepcionistas</h2>
+                </div>
+                <span class="section-count" id="count-recepcionistas">0</span>
+            </div>
+            <div class="cards-grid" id="grid-recepcionistas">
+                <!-- Cards de recepcionistas serão inseridos aqui -->
+            </div>
+        </section>
+
+        <!-- Seção de Gerentes -->
+        <section id="section-gerentes" class="team-section hidden">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-user-tie"></i>
+                    <h2>Gerentes</h2>
+                </div>
+                <span class="section-count" id="count-gerentes">0</span>
+            </div>
+            <div class="cards-grid" id="grid-gerentes">
+                <!-- Cards de gerentes serão inseridos aqui -->
+            </div>
+        </section>
+
+        <!-- Seção de Outros -->
+        <section id="section-outros" class="team-section hidden">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    <h2>Outros</h2>
+                </div>
+                <span class="section-count" id="count-outros">0</span>
+            </div>
+            <div class="cards-grid" id="grid-outros">
+                <!-- Cards de outros cargos serão inseridos aqui -->
+            </div>
+        </section>
+
+        <!-- Mensagem quando não há funcionários -->
+        <div id="no-employees" class="no-data hidden">
+            <i class="fas fa-users-slash"></i>
+            <h3>Nenhum funcionário cadastrado</h3>
+            <p>Cadastre o primeiro funcionário para começar</p>
+            <a href="cadastro-barbeiro.html" class="btn-primary">
+                <i class="fas fa-user-plus"></i> Cadastrar Funcionário
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes do Funcionário -->
+    <div id="employee-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Detalhes do Funcionário</h3>
+                <button class="modal-close" onclick="fecharModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="employee-details">
+                    <div class="detail-header">
+                        <div class="employee-avatar">
+                            <i class="fas fa-user-tie" id="modal-avatar"></i>
+                        </div>
+                        <div class="employee-basic-info">
+                            <h2 id="modal-nome"></h2>
+                            <span class="employee-cargo" id="modal-cargo"></span>
+                            <p class="employee-especialidade" id="modal-especialidade"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <i class="fas fa-id-card"></i>
+                            <div>
+                                <label>CPF</label>
+                                <p id="modal-cpf"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <label>E-mail</label>
+                                <p id="modal-email"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <label>Telefone</label>
+                                <p id="modal-telefone"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <label>Salário</label>
+                                <p id="modal-salario"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <label>Endereço</label>
+                                <p id="modal-endereco"></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-hashtag"></i>
+                            <div>
+                                <label>ID</label>
+                                <p id="modal-id"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="fecharModal()">
+                    <i class="fas fa-times"></i> Fechar
+                </button>
+                <button class="btn-primary" onclick="editarFuncionario()">
+                    <i class="fas fa-edit"></i> Editar Funcionário
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 GRAGAS Barbearia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="RH.js"></script>
+</body>
+</html>

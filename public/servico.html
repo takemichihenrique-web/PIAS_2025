@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GRAGAS Barbearia - Cadastro de Serviços</title>
+        <link rel="stylesheet" href="cadastro-cerviço.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-cut"></i> GRAGAS Barbearia</h1>
+                <nav>
+                    <div class="nav-buttons">
+                        <a href="index2.html" class="nav-button">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="agendamento.html" class="nav-button">
+                            <i class="fas fa-calendar"></i> Agendamentos
+                        </a>
+                        <a href="clientes.html" class="nav-button">
+                            <i class="fas fa-users"></i> Clientes
+                        </a>
+                        <a href="servico.html" class="nav-button active">
+                            <i class="fas fa-concierge-bell"></i> Serviços
+                        </a>
+                        <a href="barbeiro.html" class="nav-button">
+                            <i class="fas fa-user-tie"></i> Funcionários
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div id="main-container">
+            <h1><i class="fa-solid fa-check"></i> Cadastro de Serviços</h1>
+            <form id="cliente-form">
+                <div class="full-box">
+                    <label for="nome"><i class="fa-solid fa-poo"></i> Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome do serviço" required/>
+                </div>
+                <div class="half-box">
+                    <label for="preco"><i class="fa-solid fa-coins"></i> Preço:</label>
+                    <input type="text" id="preco" name="preco" placeholder="Digite o preço" required/>
+                </div>
+                <div class="half-box">
+                    <label for="duracao"><i class="fa-solid fa-hourglass-end"></i>Duração</label>
+                    <input type="text" id="duracao" name="duracao" placeholder="Digite a duraçao" required/>
+                </div>
+
+                <div class="full-box">
+                    <label for="descricao"><i class="fa-solid fa-note-sticky"></i>Descrição:</label>
+                    <input type="text"id="descricao"name="descricao"placeholder="Digite a descriçao"required/>
+                </div>
+                <div class="full-box">
+                    <button type="button" class="alinhaBtns" onclick="cadastrarServico(event)">
+                        <i class="fas fa-save"></i> Cadastrar
+                    </button>
+                    <button type="button" class="alinhaBtns" onclick="limparServico()">
+                        <i class="fas fa-broom"></i> Limpar
+                    </button>
+                    <button type="button" class="alinhaBtns" onclick="atualizarServico()">
+                        <i class="fas fa-sync-alt"></i> Atualizar Serviço
+                    </button>
+                </div>
+            </form>
+            <h2><i class="fas fa-list"></i> Listagem de Serviços</h2>
+            <button type="button" onclick="listarServicos()" class="alinhaBtns">
+                <i class="fas fa-users"></i> Listar Serviços
+            </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag"></i> ID</th>
+                        <th><i class="fa-solid fa-poo"></i> Nome</th>
+                        <th><i class="fa-solid fa-coins"></i> Preço</th>
+                        <th>
+                            <i class="fa-solid fa-hourglass-end"></i> Duração
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-note-sticky"></i> Descrição
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-clientes">
+                    <!-- Linhas serão preenchidas pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>© 2025 GRAGAS Barbearia. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="cadastro-cerviço.js"></script>
+    </body>
+</html>

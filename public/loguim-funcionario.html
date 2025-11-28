@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema Barbearia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="login-funcionario.css">
+</head>
+<body>
+    <!-- Logo no canto superior esquerdo -->
+    <div class="logo-container">
+        <img src="imagens/ccm-removebg-preview.png" alt="Logo Colégio Militar" class="logo">
+    </div>
+
+    <!-- Logo no canto superior direito -->
+    <div class="logo-estado-container">
+        <img src="imagens/LogoEstado.jpg" alt="Logo do Estado" class="logo-estado">
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <h1><i class="fas fa-cut"></i> Gragas barbearia</h1>
+            <p class="subtitle">Login de entrada</p>
+
+            <!-- Formulário de Login -->
+            <form class="form active" id="loginForm">
+                <div class="form-group">
+                    <label for="nomeLogin">Seu Nome:</label>
+                    <input type="text" id="nomeLogin" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senhaLogin">Sua Senha:</label>
+                    <input type="password" id="senhaLogin" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit" class="btn">Entrar</button>
+
+                <div class="message error-message" id="loginError">
+                    Nome ou senha incorretos!
+                </div>
+
+                <div class="message success-message" id="loginSuccess">
+                    Login realizado! Redirecionando...
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="login-funcionario.js"></script>
+</body>
+</html>

@@ -1,0 +1,756 @@
+:root {
+    --primary-color: #8B0000;
+    --secondary-color: #000000;
+    --accent-color: #FF0000;
+    --light-color: #F5F5F5;
+    --dark-color: #1A1A1A;
+    --table-bg: rgba(0, 0, 0, 0.5);
+    --hover-bg: rgba(139, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F5F5;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--light-color);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #262626 0%, #1a1a1a 100%);
+    color: #dedede;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #8B0000;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header h1 i {
+    color: #FF0000;
+    font-size: 1.6rem;
+}
+
+/* Navegação */
+nav {
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-button {
+    background: #333;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 2px solid transparent;
+    min-width: 100px;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Remove hover dos botões do header */
+.nav-button:hover {
+    background: #333;
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.nav-button i {
+    font-size: 0.9rem;
+}
+
+/* Container principal */
+#main-container {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #262626;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-color);
+    font-size: 1.6rem;
+}
+
+h2 {
+    text-align: center;
+    margin: 25px 0 15px 0;
+    color: white;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+    font-size: 1.3rem;
+}
+
+form {
+    background: #262626;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+/* Layout do formulário */
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    color: var(--light-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #464646;
+    color: var(--light-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    margin: 0;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Busca por CPF */
+.search-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.cpf-box {
+    flex: 1;
+}
+
+.btn-buscar {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 40px;
+    font-size: 12px;
+    white-space: nowrap;
+    min-width: 130px;
+}
+
+.btn-buscar:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Campo de salário */
+.salario-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.salario-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.salario-container input {
+    flex: 1;
+    margin: 0;
+}
+
+.btn-salario-medio {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.btn-salario-medio:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Botões do formulário - TODOS COM A MESMA COR */
+.buttons-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.alinhaBtns {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.alinhaBtns:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Seção da tabela */
+.table-section {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* CORREÇÃO: Container que engloba tanto o botão quanto a tabela */
+.table-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    min-width: 800px; /* mesma largura mínima da tabela */
+}
+
+/* CORREÇÃO: Botão de listar funcionários com largura igual à tabela */
+.btn-listar {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin: 15px 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    min-width: 800px; /* MESMA LARGURA MÍNIMA DA TABELA */
+}
+
+.btn-listar:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Container da tabela com scroll */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--table-bg);
+    min-width: 800px;
+    font-size: 13px;
+}
+
+table th, table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+table th {
+    background: var(--primary-color);
+    color: var(--light-color);
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 12px 10px;
+    position: sticky;
+    left: 0;
+}
+
+table td {
+    color: var(--light-color);
+    padding: 10px;
+}
+
+table tr:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #262626;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+.modal-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.modal-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+    padding: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 12px 15px;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #333;
+}
+
+/* Tabela no modal */
+.salarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--table-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.salarios-table th {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #333;
+}
+
+.salarios-table td {
+    padding: 10px 12px;
+    border: 1px solid #333;
+    color: var(--light-color);
+}
+
+.salarios-table tr:hover {
+    background-color: var(--hover-bg);
+}
+
+.salarios-nota {
+    color: #bdc3c7;
+    font-size: 11px;
+    margin-top: 12px;
+    font-style: italic;
+    text-align: center;
+}
+
+.btn-secondary {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.btn-secondary:hover {
+    background: #555;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+    border-top: 3px solid var(--accent-color);
+}
+
+footer p {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsividade - Tablets */
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem;
+    }
+
+    .header-content {
+        gap: 0.8rem;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .nav-buttons {
+        gap: 0.4rem;
+    }
+
+    .nav-button {
+        padding: 0.5rem 0.8rem;
+        min-width: 90px;
+        font-size: 0.8rem;
+    }
+
+    #main-container {
+        margin: 15px auto;
+        width: 95%;
+        padding: 20px;
+        max-width: none;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin: 20px 0 12px 0;
+    }
+
+    .form-vertical {
+        gap: 12px;
+    }
+
+    input, select, textarea {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-buscar {
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+        font-size: 11px;
+    }
+
+    .salario-container {
+        gap: 8px;
+    }
+
+    .btn-salario-medio {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+
+    .table-container {
+        margin: 10px 0;
+    }
+
+    table {
+        font-size: 11px;
+        min-width: 700px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 15px;
+    }
+
+    .alinhaBtns, .btn-listar {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .table-scroll-container {
+        min-width: 700px;
+    }
+
+    .btn-listar {
+        min-width: 700px;
+    }
+}
+
+/* Responsividade - Celulares */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-button {
+        width: 100%;
+        max-width: 160px;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    #main-container {
+        margin: 10px auto;
+        width: 98%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .form-vertical {
+        gap: 10px;
+    }
+
+    .alinhaBtns, .btn-listar {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .table-container {
+        margin: 8px 0;
+    }
+
+    table {
+        font-size: 10px;
+        min-width: 600px;
+    }
+
+    table th, table td {
+        padding: 6px;
+    }
+
+    .btn-buscar {
+        min-width: auto;
+        font-size: 11px;
+    }
+
+    .table-scroll-container {
+        min-width: 600px;
+    }
+
+    .btn-listar {
+        min-width: 600px;
+    }
+
+    footer {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Tabelas em telas muito pequenas */
+@media (max-width: 360px) {
+    #main-container {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .nav-button {
+        max-width: 140px;
+        font-size: 0.65rem;
+    }
+
+    .table-container {
+        margin: 5px 0;
+    }
+
+    table {
+        min-width: 550px;
+    }
+
+    table th, table td {
+        padding: 4px 6px;
+        font-size: 9px;
+    }
+
+    .btn-listar {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .table-scroll-container {
+        min-width: 550px;
+    }
+
+    .btn-listar {
+        min-width: 550px;
+    }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GRAGAS Barbearia - Cadastro de Serviços</title>
+        <link rel="stylesheet" href="cadastro-cerviço.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-cut"></i> GRAGAS Barbearia</h1>
+                <nav>
+                    <div class="nav-buttons">
+                        <a href="index.html" class="nav-button">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="cadastro-agendamento.html" class="nav-button">
+                            <i class="fas fa-calendar"></i> Agendamentos
+                        </a>
+                        <a href="cadastro-cliente.html" class="nav-button">
+                            <i class="fas fa-users"></i> Clientes
+                        </a>
+                        <a href="cadastro-serviço.html" class="nav-button active">
+                            <i class="fas fa-concierge-bell"></i> Serviços
+                        </a>
+                        <a href="cadastro-barbeiro.html" class="nav-button">
+                            <i class="fas fa-user-tie"></i> Funcionários
+                        </a>
+                        <a href="historico.html" class="nav-button">
+                            <i class="fas fa-history"></i> Histórico
+                        </a>
+                        <a href="financeiro.html" class="nav-button">
+                            <i class="fas fa-money-bill-wave"></i> Financeiro
+                        </a>
+                        <a href="RH.html" class="nav-button">
+                            <i class="fas fa-money-bill-wave"></i> RH
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div id="main-container">
+            <h1><i class="fa-solid fa-check"></i> Cadastro de Serviços</h1>
+            <form id="servico-form" autocomplete="off">
+                <div class="full-box">
+                    <label for="nome"><i class="fas fa-concierge-bell"></i> Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome do serviço" autocomplete="off" required/>
+                </div>
+                <div class="half-box">
+                    <label for="preco"><i class="fa-solid fa-coins"></i> Preço (R$):</label>
+                    <input type="text" id="preco" name="preco" placeholder="0,00" autocomplete="off" required/>
+                </div>
+                <div class="half-box">
+                    <label for="duracao"><i class="fa-solid fa-hourglass-end"></i> Duração (minutos):</label>
+                    <input type="number" id="duracao" name="duracao" placeholder="30" min="1" max="480" autocomplete="off" required/>
+                </div>
+
+                <div class="full-box">
+                    <label for="descricao"><i class="fa-solid fa-note-sticky"></i> Descrição:</label>
+                    <input type="text" id="descricao" name="descricao" placeholder="Digite a descrição" autocomplete="off" required/>
+                </div>
+                <<div class="button-group">
+                        <button type="button" onclick="cadastrarServico(event)" class="alinhaBtns">
+                            <i class="fas fa-plus"></i> Cadastrar Serviço
+                        </button>
+                        <button type="button" onclick="atualizarServico()" class="alinhaBtns">
+                            <i class="fas fa-edit"></i> Atualizar Serviço
+                        </button>
+                        <button type="button" onclick="limparServico()" class="alinhaBtns">
+                            <i class="fas fa-broom"></i> Limpar
+                        </button>
+                    </div>
+            </form>
+            <h2><i class="fas fa-list"></i> Listagem de Serviços</h2>
+            <button type="button" onclick="listarServicos()" class="alinhaBtns">
+                <i class="fas fa-users"></i> Listar Serviços
+            </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag"></i> ID</th>
+                        <th><i class="fas fa-concierge-bell"></i> Nome</th>
+                        <th><i class="fa-solid fa-coins"></i> Preço</th>
+                        <th>
+                            <i class="fa-solid fa-hourglass-end"></i> Duração
+                        </th>
+                        <th>
+                            <i class="fa-solid fa-note-sticky"></i> Descrição
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-servicos">
+                    <!-- Linhas serão preenchidas pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>© 2025 GRAGAS Barbearia. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="cadastro-cerviço.js"></script>
+    </body>
+</html>
